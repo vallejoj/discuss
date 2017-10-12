@@ -10,6 +10,7 @@ let channel = socket.channel(`comments:${topicId}`, {});
 channel
   .join()
   .receive("ok", resp => { 
+    console.log(resp)
     renderComments(resp.comments)
   })
 
@@ -51,9 +52,16 @@ function renderComment(event){ //this is specifically for turning one comment in
 
 
 function commentTemplate(comment){
+  let email = "Anonymous";
+  if (comment.user){
+    email = comment.user.email
+  }
   return `
   <li class="collection-item">
-    ${comment.content}
+    ${comment.content} 
+    <div class="secondary-content">
+    ${email}
+    </div>
   </li>
 `;
 
