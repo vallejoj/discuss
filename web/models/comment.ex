@@ -1,6 +1,8 @@
 defmodule Discuss.Comment do 
     use Discuss.Web, :model
 
+    @derive {Poison.Encoder, only: [:content]} #this is so that we are only sending the right type of data, if we dont do this then everythings falls apart becasue we are not sending proper data. 
+
     schema "comments" do
         field :content, :string 
         belongs_to :user, Discuss.User 
