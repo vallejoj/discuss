@@ -1,5 +1,5 @@
 # Discuss
-
+Discuss is a message board created with Elixir and the Phoenix framework. 
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
